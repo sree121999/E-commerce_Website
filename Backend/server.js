@@ -1,15 +1,15 @@
-const express=require('express')
-const { connectDB } = require('./config/db')
-const app=express()
-require('dotenv').config()
+//  server.js
 
-const PORT=process.env.PORT
+import connectDB from "./config/db.js"
+import dotenv from "dotenv"
+import app from "./app.js"
 
-
+const PORT = process.env.PORT
+dotenv.config()
 connectDB()
 
 
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log(`server running successfully ${PORT}`)
 })

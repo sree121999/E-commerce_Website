@@ -1,25 +1,27 @@
-const mongoose=require('mongoose')
+import mongoose from "mongoose";
 
-const OrderitemSchema=new mongoose.Schema({
+const OrderitemSchema = new mongoose.Schema({
 
-    oder_Id:{
-         type:mongoose.Schema.Types.ObjectId,
-        ref:'Order'
+    order_Id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Order'
     },
-   
-    product_Id:{
-          type:mongoose.Schema.Types.ObjectId,
-        ref:'Product'
+
+    product_Id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product'
 
     },
-    quantity:{
-        type:Number,
-         required:true
+    quantity: {
+        type: Number,
+        required: true
     },
-    price:{
-        type:Number,
-         required:true
+    price: {
+        type: Number,
+        required: true
     }
-},{timestamps:true})
+}, { timestamps: true })
 
-module.exports=mongoose.model('Order_item',OrderitemSchema)
+const Orderitem = mongoose.model("Orderitem", OrderitemSchema)
+
+export default Orderitem

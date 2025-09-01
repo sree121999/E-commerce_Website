@@ -1,29 +1,32 @@
-const mongoose=require('mongoose')
+import mongoose from "mongoose";
 
-const OrderSchema=new mongoose.Schema({
+const OrderSchema = new mongoose.Schema({
 
-    user_Id:{
-         type:mongoose.Schema.Types.ObjectId,
-        ref:'User'
+    user_Id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
-   
-    orderdate:{
-        type:Date,
-         required:true
+
+    orderdate: {
+        type: Date,
+        required: true
 
     },
-    status:{
-        type:String,
-         required:true,
-         enum:["pending","confirmed","processing","shipped","deliverd"],
-         default:"pending"
+    stage: {
+        type: String,
+        required: true,
+        enum: ["pending", "confirmed", "processing", "shipped", "deliverd"],
+        default: "pending"
     },
-    totalamount:{
-        type:Number,
-         required:true
+    totalamount: {
+        type: Number,
+        required: true
     }
 
 
-},{timestamps:true})
+}, { timestamps: true })
 
-module.exports=mongoose.model('Order',OrderSchema)
+
+const Order = mongoose.model("Order", OrderSchema)
+
+export default Order
